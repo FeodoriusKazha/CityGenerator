@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BuildingByDrag : MonoBehaviour
 {
-  [SerializeField] public Vector2Int GridSize = new Vector2Int(10, 10);
+  public Vector2Int GridSize = new Vector2Int(10, 10);
 
   private BuildingSettings[,] grid;
   private BuildingSettings flyingBuilding;

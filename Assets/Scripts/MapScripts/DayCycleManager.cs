@@ -5,11 +5,11 @@ using UnityEngine;
 public class DayCycleManager : MonoBehaviour
 {
   [Range(0, 1)]
-  [SerializeField] float TimeOfDay;
-  [SerializeField] float DayDuration = 30f;
+  [SerializeField] private float TimeOfDay;
+  [SerializeField] private float DayDuration = 30f;
+  [SerializeField] private Light Sun;
 
-  [SerializeField] Light Sun;
-  [SerializeField] public AnimationCurve SunCurse;
+  public AnimationCurve SunCurse;
   private float sunIntennsity;
 
 

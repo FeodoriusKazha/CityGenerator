@@ -4,23 +4,25 @@ using UnityEngine;
 
 public class LandskapeGrid : MonoBehaviour
 {
-  [SerializeField] public int[,] landskapeGrid;
-  [SerializeField] public GameObject[] landPrefabs;
-  [SerializeField] public int landSizeX, landSizeZ;
-  private float offsetX, offsetZ;
+  public int[,] landskapeGrid;
+  public GameObject[] landPrefabs;
+  public int landSizeX, landSizeZ;
+
+  private float _offsetX, _offsetZ;
+
   void Start()
   {
     CityGeneratorNew cityGeneratorNew = GetComponent<CityGeneratorNew>();
     landskapeGrid = new int[landSizeX, landSizeZ];
-    offsetX = Random.Range(0f, 100f);
-    offsetZ = Random.Range(0f, 100f);
+    _offsetX = Random.Range(0f, 100f);
+    _offsetZ = Random.Range(0f, 100f);
 
     for (int i = 0; i < landSizeX; i++)
     {
       for (int j = 0; j < landSizeZ; j++)
       {
-        float xCoord = ((float)i / landSizeX) + offsetX;
-        float zCoord = ((float)j / landSizeZ) + offsetZ;
+        float xCoord = ((float)i / landSizeX) + _offsetX;
+        float zCoord = ((float)j / landSizeZ) + _offsetZ;
         float perlinValue = Mathf.PerlinNoise(xCoord, zCoord);
 
         landskapeGrid[i, j] = Mathf.RoundToInt(perlinValue * 4);
@@ -50,7 +52,6 @@ public class LandskapeGrid : MonoBehaviour
     }
   }
 
-  // Update is called once per frame
   public void CheckLand(GameObject[,] cityGrid)
   {
     int gridSizeX = cityGrid.GetLength(0);

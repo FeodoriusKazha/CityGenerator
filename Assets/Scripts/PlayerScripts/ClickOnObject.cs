@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ClickOnObject : MonoBehaviour
 {
-
     void Update()
     {
     CityGeneratorNew cityGeneratorNew = GetComponent<CityGeneratorNew>();

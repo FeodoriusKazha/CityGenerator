@@ -5,8 +5,8 @@ using UnityEngine;
 // Отвечает за цвет строения во время постановки
 public class BuildingSettings : MonoBehaviour
 {
-  [SerializeField] public Renderer MainRenderer;
-  [SerializeField] public Vector2Int Size = Vector2Int.one;
+  public Renderer MainRenderer;
+  public Vector2Int Size = Vector2Int.one;
 
   public void SetTransparent(bool available)
   {

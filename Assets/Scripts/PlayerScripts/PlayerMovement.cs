@@ -17,9 +17,6 @@ public class PlayerMovement : MonoBehaviour
     // Перемещаем игрока относительно камеры
     transform.position += Camera.main.transform.TransformDirection(movement) * speed * Time.deltaTime;
 
-    // Убираем вертикальное движение, чтобы игрок не начал летать или падать
-    //transform.position = new Vector3(transform.position.x, 0, transform.position.z);
-
     // Вращаем камеру при движении мыши
     if (Input.GetMouseButton(1)) // правая кнопка мыши
     {

@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class CityGeneratorNew : MonoBehaviour
 {
-  [SerializeField] public GameObject[] buildingPrefabs;
-  [SerializeField] int size;
-  [SerializeField] public GameObject[,] gridAll;
+  public GameObject[] buildingPrefabs;
+  public GameObject[,] gridAll;
+  
+  [SerializeField] private int size;
 
   void Start()
   {
@@ -36,55 +37,4 @@ public class CityGeneratorNew : MonoBehaviour
       }
     }
   }
-  
-  //public void GridFiller()
-  //{
-  //  currentX += districtSizeX;
-  //  currentZ += districtSizeZ;
-  //  DistrictFiller(0, 0);
-  //  iteration++;
-  //}
-  //public void DistrictFiller(int i, int j)
-  //{
-  //  LandskapeGrid landskapeGrid = GetComponent<LandskapeGrid>();
-  //  if (landskapeGrid.landskapeGrid.GetLength(0) >= currentX)
-  //  {
-  //    if (landskapeGrid.landskapeGrid.GetLength(1) >= currentZ)
-  //    {
-  //      if (iteration != 0) gridAll = GridCheck(gridAll);
-  //        for (; i < currentX; i++)
-  //        {
-  //          for (; j < currentZ; j++)
-  //          {
-  //            if (gridAll[i, j] == null)
-  //            {
-  //              GameObject buildingPrefab = buildingPrefabs[Random.Range(0, buildingPrefabs.Length)];
-  //              //gridAll[gridCount, i, j] = Instantiate(buildingPrefab, new Vector3(i + 1, 0, j + 1), Quaternion.identity) as GameObject;
-                
-  //              gridAll[i, j] = Instantiate(buildingPrefab, new Vector3(i, 0, j), Quaternion.identity) as GameObject;
-
-  //            }
-  //          }
-          
-  //      }
-  //      landskapeGrid.CheckLand(gridAll);
-  //    }
-  //  }
-  //}
-
-  //public GameObject[,] GridCheck(GameObject[,] grid)
-  //{
-  //  GameObject[,] gridExample = new GameObject[currentX, currentZ];
-
-  //  for (int i = 0; i < grid.Length / districtSizeX / iteration / 4; i++)
-  //  {
-  //    for (int j = 0; j < grid.Length / districtSizeZ / iteration / 4; j++)
-  //    {
-  //      {
-  //        gridExample[i, j] = grid[i, j];
-  //      }
-  //    }
-  //  }
-  //  return gridExample;
-  //}
 }

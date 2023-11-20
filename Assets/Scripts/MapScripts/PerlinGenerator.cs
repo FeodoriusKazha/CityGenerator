@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class PerlinGenerator : MonoBehaviour
 {
-  Texture2D texture;
+  private Texture2D _texture;
   void Start()
   {
-    texture = new Texture2D(512, 512);
+    _texture = new Texture2D(512, 512);
     GenerateTexture();
   }
 
@@ -17,30 +17,30 @@ public class PerlinGenerator : MonoBehaviour
   }
   public void GenerateTexture()
   {
-    float[,] heights = new float[texture.width, texture.height];
+    float[,] heights = new float[_texture.width, _texture.height];
     int iterations = 8;
     for (int k = 0; k < iterations; k++)
     {
 
       int skale = 1 << k;
-      float[,] heightsT = new float[texture.width / skale, texture.height / skale];
+      float[,] heightsT = new float[_texture.width / skale, _texture.height / skale];
 
-      for (int y = 0; y < texture.height / skale; y++)
+      for (int y = 0; y < _texture.height / skale; y++)
       {
-        for (int x = 0; x < texture.width / skale; x++)
+        for (int x = 0; x < _texture.width / skale; x++)
         {
           heightsT[x, y] = Random.Range(0f, 1f);
         }
       }
 
-      for (int y = 0; y < texture.height; y++)
+      for (int y = 0; y < _texture.height; y++)
       {
-        for (int x = 0; x < texture.width; x++)
+        for (int x = 0; x < _texture.width; x++)
         {
           float z0 = heightsT[x / skale, y / skale];
-          float z1 = heightsT[(x / skale + 1) % (texture.width / skale), y / skale];
-          float z2 = heightsT[x / skale, (y / skale + 1) % (texture.width / skale)];
-          float z3 = heightsT[(x / skale + 1) % (texture.width / skale), (y / skale + 1) % (texture.width / skale)];
+          float z1 = heightsT[(x / skale + 1) % (_texture.width / skale), y / skale];
+          float z2 = heightsT[x / skale, (y / skale + 1) % (_texture.width / skale)];
+          float z3 = heightsT[(x / skale + 1) % (_texture.width / skale), (y / skale + 1) % (_texture.width / skale)];
           float x0 = (x / skale * skale);
           float x1 = (x / skale * skale + skale);
           float y0 = (y / skale * skale);
@@ -52,15 +52,15 @@ public class PerlinGenerator : MonoBehaviour
         }
       }
     }
-    for (int y = 0; y < texture.height; y++)
+    for (int y = 0; y < _texture.height; y++)
     {
-      for (int x = 0; x < texture.width; x++)
+      for (int x = 0; x < _texture.width; x++)
       {
         float c = heights[x, y];
         Color color = new Color(c, c, c);
-        texture.SetPixel(x, y, color);
+        _texture.SetPixel(x, y, color);
       }
     }
-    texture.Apply();
+    _texture.Apply();
   }
 }

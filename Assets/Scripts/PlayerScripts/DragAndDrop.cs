@@ -6,8 +6,8 @@ using UnityEngine.EventSystems;
 
 public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
-  [SerializeField] RectTransform rectTransform;
-  [SerializeField] Image image;
+  [SerializeField] private RectTransform rectTransform;
+  [SerializeField] private Image image;
 
   private void Awake()
   {

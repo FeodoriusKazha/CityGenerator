@@ -4,13 +4,13 @@ using UnityEngine;
 
 public abstract class BuildingTipe : MonoBehaviour //Класс всех зданий
 {
-  protected int cost;
-  [SerializeField] public int sizeX;
-  [SerializeField] public int sizeZ;
-  protected int coordinateX;
-  protected int coordinateZ;
+  protected int _cost;
+  public int sizeX;
+  public int sizeZ;
+  protected int _coordinateX;
+  protected int _coordinateZ;
 
-  [SerializeField] public GameObject[] BuildingPrefabs;
+  public GameObject[] BuildingPrefabs;
 
   public abstract void GetInfo();
   public void Build(int centerX, int centerZ)
