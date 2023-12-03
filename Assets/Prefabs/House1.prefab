@@ -47,6 +47,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MainRenderer: {fileID: 1627845165625574068}
   Size: {x: 3, y: 3}
+  _districtTipe: 1
+  DistrictConectionsPrefabs: []
 --- !u!1 &4981308325532207617
 GameObject:
   m_ObjectHideFlags: 0

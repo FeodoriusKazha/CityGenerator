@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\MapScripts\GridGenerator_River_Tipe.cs" />
+    <Compile Include="Assets\Scripts\MapScripts\Buildings\RandomColor.cs" />
     <Compile Include="Assets\Scripts\MapScripts\PerlinGenerator.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\ClickOnObject.cs" />

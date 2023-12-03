@@ -7,7 +7,28 @@ public class BuildingSettings : MonoBehaviour
 {
   public Renderer MainRenderer;
   public Vector2Int Size = Vector2Int.one;
+  private int _bonus;
+  public string _districtTipe;
+  public GameObject[] DistrictConectionsPrefabs;
 
+  public int CheckDistrictBonus()
+  {
+    return _bonus;
+  }
+
+  public string CheckDistrictTipe()
+  {
+    return _districtTipe;
+  }
+
+  public void ConnectionCheck(/*string tipe, int side*/)
+  {
+    //  if (_districtTipe == tipe)
+    //  {
+    _bonus++;
+    //   DistrictConectionsPrefabs[side].SetActive(true);
+    //  }
+  }
   public void SetTransparent(bool available)
   {
     if (available) MainRenderer.material.color = Color.green;

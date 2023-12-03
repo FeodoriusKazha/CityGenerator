@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DistrictBonus : MonoBehaviour
 {
-  private int _bonus;
+  public int _bonus;
   private string _districtTipe;
   public GameObject[] DistrictConectionsPrefabs; 
 

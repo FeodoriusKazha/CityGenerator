@@ -50,6 +50,7 @@ public class BuildingByDrag : MonoBehaviour
         if (available || Input.GetMouseButtonDown(0))
         {
           PlaceFlyingBuilding(x,y);
+          CheckNeighbors(x, y, flyingBuilding);
         }
       }
     }
@@ -80,6 +81,25 @@ public class BuildingByDrag : MonoBehaviour
 
     flyingBuilding.SetNormal();
     flyingBuilding = null;
+  }
+  private void CheckNeighbors(int placeX, int placeY, BuildingSettings building)
+  {
+    
+    for (int x = -1; x <= building.Size.x; x++)
+    {
+      for (int y = -1; y <= building.Size.y; y++)
+      {
+        if (placeX + x >= 0 && placeX + x < GridSize.x && placeY + y >= 0 && placeY + y < GridSize.y)
+        {
+          BuildingSettings neighbor = grid[placeX + x, placeY + y];
+          if (neighbor != null && neighbor.CheckDistrictTipe() == building.CheckDistrictTipe())
+          {
+            neighbor.ConnectionCheck();
+            building.ConnectionCheck();
+          }
+        }
+      }
+    }
   }
 
 }
