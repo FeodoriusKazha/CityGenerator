@@ -11,6 +11,8 @@ public class BuildingSettings : MonoBehaviour
   public string _districtTipe;
   public GameObject[] DistrictConectionsPrefabs;
 
+  private float _cellSize = 10f;
+
   public int CheckDistrictBonus()
   {
     return _bonus;
@@ -49,7 +51,7 @@ public class BuildingSettings : MonoBehaviour
         if ((x + y) % 2 == 0) Gizmos.color = new Color(0.8f, 0f, 1f, 0.3f);
         else Gizmos.color = new Color(1f, 0.6f, 0f, 0.3f);
 
-        Gizmos.DrawCube(transform.position + new Vector3(x, 0, y), new Vector3(1, 0.1f, 1));
+        Gizmos.DrawCube(transform.position + new Vector3(x * _cellSize, 0, y * _cellSize), new Vector3(1 * _cellSize, 0.1f, 1 * _cellSize));
       }
 
     }

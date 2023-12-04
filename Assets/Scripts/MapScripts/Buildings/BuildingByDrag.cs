@@ -8,6 +8,7 @@ public class BuildingByDrag : MonoBehaviour
   private BuildingSettings[,] grid;
   private BuildingSettings flyingBuilding;
   private Camera mainCamera;
+  private float _cellSize = 10f;
 
   private void Awake()
   {
@@ -16,9 +17,10 @@ public class BuildingByDrag : MonoBehaviour
     mainCamera = Camera.main;
   }
 
-  public void StartPlaysingBuilding(BuildingSettings buildingPrefab)
+  public void StartPlaysingBuilding(GameObject Prefab)
   {
-    if (flyingBuilding != null) Destroy(flyingBuilding);
+    BuildingSettings buildingPrefab = Prefab.GetComponent<BuildingSettings>();
+    if (flyingBuilding != null) Destroy(flyingBuilding.gameObject);
     flyingBuilding = Instantiate(buildingPrefab);
   }
 
@@ -33,8 +35,8 @@ public class BuildingByDrag : MonoBehaviour
       {
         Vector3 worldPosition = ray.GetPoint(position);
 
-        int x = Mathf.RoundToInt(worldPosition.x);
-        int y = Mathf.RoundToInt(worldPosition.z);
+        int x = Mathf.RoundToInt(worldPosition.x / _cellSize);
+        int y = Mathf.RoundToInt(worldPosition.z / _cellSize);
 
         bool available = true;
 
@@ -43,13 +45,13 @@ public class BuildingByDrag : MonoBehaviour
 
         if (available && IsPlaceTaken(x, y)) available = false;
 
-        flyingBuilding.transform.position = new Vector3(x, 0, y);
+        flyingBuilding.transform.position = new Vector3(x * _cellSize, 0, y * _cellSize);
         flyingBuilding.SetTransparent(available);
 
-        if (available || Input.GetMouseButtonDown(0))
+        if (available && Input.GetMouseButtonDown(0))
         {
           PlaceFlyingBuilding(x,y);
-          CheckNeighbors(x, y, flyingBuilding);
+          //CheckNeighbors(x, y, flyingBuilding);
         }
       }
     }
@@ -106,12 +108,12 @@ public class BuildingByDrag : MonoBehaviour
 
     for (int x = 0; x <= GridSize.x; x++)
     {
-      Gizmos.DrawLine(new Vector3(x, 0, 0), new Vector3(x, 0, GridSize.y));
+      Gizmos.DrawLine(new Vector3(x * _cellSize, 0, 0), new Vector3(x * _cellSize, 0, GridSize.y * _cellSize));
     }
 
     for (int y = 0; y <= GridSize.y; y++)
     {
-      Gizmos.DrawLine(new Vector3(0, 0, y), new Vector3(GridSize.x, 0, y));
+      Gizmos.DrawLine(new Vector3(0, 0, y * _cellSize), new Vector3(GridSize.x * _cellSize, 0, y * _cellSize));
     }
   }
 }

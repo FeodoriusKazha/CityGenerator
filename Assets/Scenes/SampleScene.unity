@@ -1030,6 +1030,7 @@ GameObject:
   - component: {fileID: 500379692}
   - component: {fileID: 500379691}
   - component: {fileID: 500379693}
+  - component: {fileID: 500379694}
   m_Layer: 0
   m_Name: WorldManager
   m_TagString: Untagged
@@ -1049,7 +1050,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8329d111a3c402047861a9c1545f71de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GridSize: {x: 100, y: 100}
+  GridSize: {x: 10, y: 10}
 --- !u!4 &500379692
 Transform:
   m_ObjectHideFlags: 0
@@ -1077,6 +1078,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 214ba09b989c8aa42abbb0885bfbbeee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &500379694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 500379690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 475e7337d23107f4f92729d46a51b5af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildingPrefab:
+  - {fileID: 2760859440417296401, guid: 329da1d8d8ebe3843a24ad9bd72e2c92, type: 3}
+  buildingByDrag: {fileID: 500379691}
 --- !u!1 &561039012
 GameObject:
   m_ObjectHideFlags: 0
@@ -2073,14 +2089,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 500379691}
-        m_TargetAssemblyTypeName: BuildingByDrag, Assembly-CSharp
-        m_MethodName: StartPlaysingBuilding
-        m_Mode: 2
+      - m_Target: {fileID: 500379694}
+        m_TargetAssemblyTypeName: DistrictTipe, Assembly-CSharp
+        m_MethodName: ChoseDistrict
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: BuildingSettings, Assembly-CSharp
-          m_IntArgument: 1
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

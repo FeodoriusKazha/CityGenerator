@@ -75,6 +75,7 @@
     <Compile Include="Assets\Scripts\PlayerScripts\TakeBuildTipe.cs" />
     <Compile Include="Assets\Scripts\MapScripts\Buildings\BuildingTipe.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\DistrictBonus.cs" />
+    <Compile Include="Assets\Scripts\MapScripts\Buildings\DistrictTipe.cs" />
     <Compile Include="Assets\Scripts\MapScripts\Buildings\BuildingSettings.cs" />
     <Compile Include="Assets\Scripts\MapScripts\DayCycleManager.cs" />
   </ItemGroup>
