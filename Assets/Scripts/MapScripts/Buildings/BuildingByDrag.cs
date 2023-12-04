@@ -5,7 +5,6 @@ using UnityEngine;
 public class BuildingByDrag : MonoBehaviour
 {
   public Vector2Int GridSize = new Vector2Int(10, 10);
-
   private BuildingSettings[,] grid;
   private BuildingSettings flyingBuilding;
   private Camera mainCamera;
@@ -101,6 +100,19 @@ public class BuildingByDrag : MonoBehaviour
       }
     }
   }
+  void OnDrawGizmosSelected()
+  {
+    Gizmos.color = Color.white;
 
+    for (int x = 0; x <= GridSize.x; x++)
+    {
+      Gizmos.DrawLine(new Vector3(x, 0, 0), new Vector3(x, 0, GridSize.y));
+    }
+
+    for (int y = 0; y <= GridSize.y; y++)
+    {
+      Gizmos.DrawLine(new Vector3(0, 0, y), new Vector3(GridSize.x, 0, y));
+    }
+  }
 }
 

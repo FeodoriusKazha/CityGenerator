@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Location
   - Building
+  - Light
   layers:
   - Default
   - TransparentFX

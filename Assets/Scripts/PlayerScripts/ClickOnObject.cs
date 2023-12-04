@@ -6,7 +6,7 @@ public class ClickOnObject : MonoBehaviour
 {
     void Update()
     {
-    CityGeneratorNew cityGeneratorNew = GetComponent<CityGeneratorNew>();
+    //CityGeneratorNew cityGeneratorNew = GetComponent<CityGeneratorNew>();
     Mall mall = GetComponent<Mall>();
     TakeBuildTipe takeBuildTipe = GetComponent<TakeBuildTipe>();
     // Проверяем, был ли сделан клик левой кнопкой мыши
@@ -32,10 +32,10 @@ public class ClickOnObject : MonoBehaviour
 
               break;
             case 1:
-              cityGeneratorNew.GenerateCitiByPoint(i, j);
+              //cityGeneratorNew.GenerateCitiByPoint(i, j);
               break;
             case 2:
-              mall.Build(i, j);
+              //mall.Build(i, j);
               break;
           }
         }
