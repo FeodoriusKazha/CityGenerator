@@ -1297,6 +1297,7 @@ MonoBehaviour:
   GridSize: {x: 10, y: 10}
   displayParameter: {fileID: 500379695}
   resursManager: {fileID: 500379696}
+  resoursCounter: {fileID: 500379693}
 --- !u!4 &500379692
 Transform:
   m_ObjectHideFlags: 0

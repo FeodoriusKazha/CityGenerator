@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class BuildingTipe : MonoBehaviour //Класс всех зданий
 {
-  protected int _cost;
+  //protected int _cost;
   public int sizeX;
   public int sizeZ;
   protected int _coordinateX;

@@ -7,10 +7,12 @@ public class BuildingSettings : MonoBehaviour
 {
   public Renderer MainRenderer;
   public Vector2Int Size = Vector2Int.one;
-  public int _bonus;
+  private int _bonus;
   public string _districtTipe;
   public GameObject[] DistrictConectionsPrefabs;
   
+  private int _cost = 10;
+  private int _upkeep = 1;
   private float _cellSize = 10f;
 
   public int CheckDistrictBonus()
@@ -21,6 +23,11 @@ public class BuildingSettings : MonoBehaviour
   public string CheckDistrictTipe()
   {
     return _districtTipe;
+  }
+
+  public int CheckDistrictCost()
+  {
+    return _cost;
   }
 
   public void ConnectionCheck()

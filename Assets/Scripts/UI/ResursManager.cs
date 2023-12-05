@@ -35,4 +35,12 @@ public class ResursManager : MonoBehaviour
     displayParameter.ChangeParametr("Food", textMeshPro[2]);
     displayParameter.ChangeParametr("People", textMeshPro[3]);
   }
+
+  public void UpdateResursBars()
+  {
+    displayParameter.DisplayParametr("Money", textMeshPro[0]);
+    displayParameter.DisplayParametr("Production", textMeshPro[1]);
+    displayParameter.DisplayParametr("Food", textMeshPro[2]);
+    displayParameter.DisplayParametr("People", textMeshPro[3]);
+  }
 }

@@ -17,4 +17,8 @@ public class DisplayParameter : MonoBehaviour
     resoursCounter.AddResours(resoursCounter.GetResoursBonus(tipe), tipe);
     textMeshPro.text = resoursCounter.GetResours(tipe).ToString() +" (" + resoursCounter.GetResoursBonus(tipe).ToString() + ")";
   }
+  public void DisplayParametr(string tipe, TextMeshProUGUI textMeshPro)
+  {
+    textMeshPro.text = resoursCounter.GetResours(tipe).ToString() + " (" + resoursCounter.GetResoursBonus(tipe).ToString() + ")";
+  }
 }

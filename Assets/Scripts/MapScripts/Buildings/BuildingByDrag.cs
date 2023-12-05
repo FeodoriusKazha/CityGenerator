@@ -9,21 +9,29 @@ public class BuildingByDrag : MonoBehaviour
   private BuildingSettings flyingBuilding;
   public DisplayParameter displayParameter;
   public ResursManager resursManager;
+  public ResoursCounter resoursCounter;
   private Camera mainCamera;
   private float _cellSize = 10f;
 
   private void Awake()
   {
     grid = new BuildingSettings[GridSize.x, GridSize.y];
-
     mainCamera = Camera.main;
   }
 
   public void StartPlaysingBuilding(GameObject Prefab)
   {
     BuildingSettings buildingPrefab = Prefab.GetComponent<BuildingSettings>();
-    if (flyingBuilding != null) Destroy(flyingBuilding.gameObject);
-    flyingBuilding = Instantiate(buildingPrefab);
+    Debug.Log(resoursCounter.GetResours("Money"));
+    Debug.Log(buildingPrefab.CheckDistrictCost());
+    if (resoursCounter.GetResours("Money") >= buildingPrefab.CheckDistrictCost())
+    {
+      if (flyingBuilding != null) Destroy(flyingBuilding.gameObject);
+
+      flyingBuilding = Instantiate(buildingPrefab);
+      resoursCounter.AddResours(-flyingBuilding.CheckDistrictCost(), "Money");
+      resursManager.UpdateResursBars();
+    }
   }
 
   private void Update()
