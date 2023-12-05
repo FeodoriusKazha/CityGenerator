@@ -7,6 +7,8 @@ public class BuildingByDrag : MonoBehaviour
   public Vector2Int GridSize = new Vector2Int(10, 10);
   private BuildingSettings[,] grid;
   private BuildingSettings flyingBuilding;
+  public DisplayParameter displayParameter;
+  public ResursManager resursManager;
   private Camera mainCamera;
   private float _cellSize = 10f;
 
@@ -50,8 +52,8 @@ public class BuildingByDrag : MonoBehaviour
 
         if (available && Input.GetMouseButtonDown(0))
         {
+          CheckNeighbors(x, y, flyingBuilding);
           PlaceFlyingBuilding(x,y);
-          //CheckNeighbors(x, y, flyingBuilding);
         }
       }
     }
@@ -85,7 +87,6 @@ public class BuildingByDrag : MonoBehaviour
   }
   private void CheckNeighbors(int placeX, int placeY, BuildingSettings building)
   {
-    
     for (int x = -1; x <= building.Size.x; x++)
     {
       for (int y = -1; y <= building.Size.y; y++)
@@ -97,6 +98,7 @@ public class BuildingByDrag : MonoBehaviour
           {
             neighbor.ConnectionCheck();
             building.ConnectionCheck();
+            resursManager.ChangeSize(neighbor.CheckDistrictTipe()); // Ќужно проверить правильность работы
           }
         }
       }
