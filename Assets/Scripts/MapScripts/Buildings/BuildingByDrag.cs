@@ -61,6 +61,7 @@ public class BuildingByDrag : MonoBehaviour
         if (available && Input.GetMouseButtonDown(0))
         {
           CheckNeighbors(x, y, flyingBuilding);
+          if(flyingBuilding.CheckDistrictTipe() != "Food") resoursCounter.AddResoursBonus(-flyingBuilding.CheckDistrictUpkeep(), "Food");
           PlaceFlyingBuilding(x,y);
         }
       }

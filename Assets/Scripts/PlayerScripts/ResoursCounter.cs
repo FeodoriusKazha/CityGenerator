@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class ResoursCounter : MonoBehaviour
 {
-  private int _money = 10;
+  private int _money = 100;
   private int _production;
-  private int _food;
+  private int _food = 10; 
   private int _people;
 
   private int _moneyBonus;

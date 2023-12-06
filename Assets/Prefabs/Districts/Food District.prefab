@@ -60,9 +60,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingPrefabs:
-  - {fileID: 6072708190060355380, guid: 926bf993d6c4ea44fa0af1b666325787, type: 3}
-  - {fileID: 7083899089630114137, guid: a7b3e42968661ed4192878d849d84126, type: 3}
-  - {fileID: 7045950832514201058, guid: 4abb21e9ee6853340879b25418a2f95e, type: 3}
+  - {fileID: 419206103420844932, guid: fa32774fd25e4e04f9b12098e0c24b2e, type: 3}
+  - {fileID: 4795326671628531150, guid: 997f498f4bc27de448a543fd5d55e300, type: 3}
+  - {fileID: 668502208979167570, guid: d7721f829a96ad544a20c762d334995c, type: 3}
+  - {fileID: 521586573609613155, guid: 50ce3294d9a617e40b0bd918a841afba, type: 3}
+  - {fileID: 6473245957281803730, guid: e29b458895ac0124cbffc5e27021c42c, type: 3}
+  - {fileID: 2427901503666885207, guid: 5e0b114220639da47ba112a304b216e1, type: 3}
   randomColorScript: {fileID: 8523409721573686431}
 --- !u!114 &6193176553876946316
 MonoBehaviour:
@@ -78,7 +81,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MainRenderer: {fileID: 2502245204664695849}
   Size: {x: 1, y: 1}
-  _bonus: 0
   _districtTipe: Food
   DistrictConectionsPrefabs: []
 --- !u!1 &5875882977831442052

@@ -25,6 +25,11 @@ public class BuildingSettings : MonoBehaviour
     return _districtTipe;
   }
 
+  public int CheckDistrictUpkeep()
+  {
+    return _upkeep;
+  }
+
   public int CheckDistrictCost()
   {
     return _cost;
