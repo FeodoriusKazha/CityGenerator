@@ -6,6 +6,7 @@ using UnityEngine;
 public class BuildingSettings : MonoBehaviour
 {
   public Renderer MainRenderer;
+  public UnicDistrictSpawner unicDistrictSpawner;
   public Vector2Int Size = Vector2Int.one;
   private int _bonus;
   public string _districtTipe;
@@ -35,9 +36,56 @@ public class BuildingSettings : MonoBehaviour
     return _cost;
   }
 
-  public void ConnectionCheck()
+  public void ConnectionCheck(int x, int y)
   {
+    int side = 0;
     _bonus++;
+    switch (x)
+    {
+      case -1:
+        switch (y)
+        {
+          case -1:
+            side = 0;
+            break;
+          case 0:
+            side = 0;
+            break;
+          case 1:
+            side = 0;
+            break;
+        }
+        break;
+      case 0:
+        switch (y)
+        {
+          case -1:
+            side = 0;
+            break;
+          case 0:
+            side = 0;
+            break;
+          case 1:
+            side = 0;
+            break;
+        }
+        break;
+      case 1:
+        switch (y)
+        {
+          case -1:
+            side = 0;
+            break;
+          case 0:
+            side = 0;
+            break;
+          case 1:
+            side = 0;
+            break;
+        }
+        break;
+    }
+    unicDistrictSpawner.ActiveSide(side);
   }
 
   public void SetTransparent(bool available)

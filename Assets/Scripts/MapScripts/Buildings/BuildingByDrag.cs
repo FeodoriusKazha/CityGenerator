@@ -10,6 +10,7 @@ public class BuildingByDrag : MonoBehaviour
   public DisplayParameter displayParameter;
   public ResursManager resursManager;
   public ResoursCounter resoursCounter;
+  public UnicDistrictSpawner unicDistrictSpawner;
   private Camera mainCamera;
   private float _cellSize = 10f;
 
@@ -62,7 +63,7 @@ public class BuildingByDrag : MonoBehaviour
         {
           CheckNeighbors(x, y, flyingBuilding);
           if(flyingBuilding.CheckDistrictTipe() != "Food") resoursCounter.AddResoursBonus(-flyingBuilding.CheckDistrictUpkeep(), "Food");
-          PlaceFlyingBuilding(x,y);
+          PlaceFlyingBuilding(x,y);  
         }
       }
     }
@@ -105,8 +106,8 @@ public class BuildingByDrag : MonoBehaviour
           BuildingSettings neighbor = grid[placeX + x, placeY + y];
           if (neighbor != null && neighbor.CheckDistrictTipe() == building.CheckDistrictTipe())
           {
-            neighbor.ConnectionCheck();
-            building.ConnectionCheck();
+            neighbor.ConnectionCheck(x,y);
+            building.ConnectionCheck(-x, -y);
             resursManager.ChangeSize(neighbor.CheckDistrictTipe()); // Ќужно проверить правильность работы
           }
         }

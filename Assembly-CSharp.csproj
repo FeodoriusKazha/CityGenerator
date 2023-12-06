@@ -72,6 +72,7 @@
     <Compile Include="Assets\Scripts\PlayerScripts\DragAndDrop.cs" />
     <Compile Include="Assets\Scripts\MapScripts\LandskapeGrid.cs" />
     <Compile Include="Assets\Scripts\UI\DisplayParameter.cs" />
+    <Compile Include="Assets\Scripts\MapScripts\MapLevels.cs" />
     <Compile Include="Assets\Scripts\MapScripts\Buildings\RandomColoring.cs" />
     <Compile Include="Assets\Scripts\MapScripts\Vizualizer.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\TakeBuildTipe.cs" />
