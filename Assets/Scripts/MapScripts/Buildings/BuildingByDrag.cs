@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class BuildingByDrag : MonoBehaviour
 {
-  public Vector2Int GridSize = new Vector2Int(10, 10);
-  private BuildingSettings[,] grid;
+  public Vector3Int GridSize = new Vector3Int(10, 10, 3);
+  private BuildingSettings[,,] grid;
   private BuildingSettings flyingBuilding;
   public DisplayParameter displayParameter;
   public ResursManager resursManager;
@@ -16,7 +16,7 @@ public class BuildingByDrag : MonoBehaviour
 
   private void Awake()
   {
-    grid = new BuildingSettings[GridSize.x, GridSize.y];
+    grid = new BuildingSettings[GridSize.x, GridSize.y, GridSize.z];
     mainCamera = Camera.main;
   }
 
@@ -75,7 +75,7 @@ public class BuildingByDrag : MonoBehaviour
     {
       for (int y = 0; y < flyingBuilding.Size.y; y++)
       {
-        if(grid[placeX + x, placeY + y] != null) return true;
+        if(grid[placeX + x, placeY + y, 0] != null) return true;
       }
     }
 
@@ -88,7 +88,7 @@ public class BuildingByDrag : MonoBehaviour
     {
       for (int y = 0; y < flyingBuilding.Size.y; y++)
       {
-        grid[placeX + x, placeY + y] = flyingBuilding;
+        grid[placeX + x, placeY + y, 0] = flyingBuilding;
       }
     }
 
@@ -101,14 +101,17 @@ public class BuildingByDrag : MonoBehaviour
     {
       for (int y = -1; y <= building.Size.y; y++)
       {
-        if (placeX + x >= 0 && placeX + x < GridSize.x && placeY + y >= 0 && placeY + y < GridSize.y)
+        for (int z = -1; z <= building.Size.z; z++)
         {
-          BuildingSettings neighbor = grid[placeX + x, placeY + y];
-          if (neighbor != null && neighbor.CheckDistrictTipe() == building.CheckDistrictTipe())
+          if (placeX + x >= 0 && placeX + x < GridSize.x && placeY + y >= 0 && placeY + y < GridSize.y)
           {
-            neighbor.ConnectionCheck(x,y);
-            building.ConnectionCheck(-x, -y);
-            resursManager.ChangeSize(neighbor.CheckDistrictTipe()); // Ќужно проверить правильность работы
+            BuildingSettings neighbor = grid[placeX + x, placeY + y, 0];
+            if (neighbor != null && neighbor.CheckDistrictTipe() == building.CheckDistrictTipe())
+            {
+              neighbor.ConnectionCheck(-x, -y);
+              building.ConnectionCheck(x, y);
+              resursManager.ChangeSize(neighbor.CheckDistrictTipe()); // Ќужно проверить правильность работы
+            }
           }
         }
       }

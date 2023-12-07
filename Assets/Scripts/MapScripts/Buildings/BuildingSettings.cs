@@ -3,18 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // Отвечает за цвет строения во время постановки
-public class BuildingSettings : MonoBehaviour
+public class BuildingSettings : MapSettings
 {
-  public Renderer MainRenderer;
+  //public Renderer MainRenderer;
   public UnicDistrictSpawner unicDistrictSpawner;
-  public Vector2Int Size = Vector2Int.one;
+  
   private int _bonus;
   public string _districtTipe;
-  public GameObject[] DistrictConectionsPrefabs;
   
   private int _cost = 10;
   private int _upkeep = 1;
-  private float _cellSize = 10f;
+  
 
   public int CheckDistrictBonus()
   {
@@ -49,10 +48,10 @@ public class BuildingSettings : MonoBehaviour
             side = 0;
             break;
           case 0:
-            side = 0;
+            side = 1;
             break;
           case 1:
-            side = 0;
+            side = 2;
             break;
         }
         break;
@@ -60,13 +59,10 @@ public class BuildingSettings : MonoBehaviour
         switch (y)
         {
           case -1:
-            side = 0;
-            break;
-          case 0:
-            side = 0;
+            side = 3;
             break;
           case 1:
-            side = 0;
+            side = 4;
             break;
         }
         break;
@@ -74,13 +70,13 @@ public class BuildingSettings : MonoBehaviour
         switch (y)
         {
           case -1:
-            side = 0;
+            side = 5;
             break;
           case 0:
-            side = 0;
+            side = 6;
             break;
           case 1:
-            side = 0;
+            side = 7;
             break;
         }
         break;

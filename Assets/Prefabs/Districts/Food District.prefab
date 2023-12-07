@@ -80,6 +80,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MainRenderer: {fileID: 2502245204664695849}
+  unicDistrictSpawner: {fileID: 759627194928186576}
   Size: {x: 1, y: 1}
   _districtTipe: Food
   DistrictConectionsPrefabs: []

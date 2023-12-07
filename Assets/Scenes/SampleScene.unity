@@ -566,9 +566,7 @@ GameObject:
   m_Component:
   - component: {fileID: 280632591}
   - component: {fileID: 280632590}
-  - component: {fileID: 280632592}
   - component: {fileID: 280632593}
-  - component: {fileID: 280632594}
   - component: {fileID: 280632595}
   - component: {fileID: 280632596}
   - component: {fileID: 280632598}
@@ -596,6 +594,11 @@ MonoBehaviour:
   - {fileID: 919132149155446097, guid: 8a424264d6b4f774bb0472464299c4d7, type: 3}
   gridSizeX: 5
   gridSizeZ: 5
+  _gridSizeAddX: 0
+  _gridSizeAddZ: 0
+  randomValue: 0
+  emptyCells: []
+  availablePositions: []
 --- !u!4 &280632591
 Transform:
   m_ObjectHideFlags: 0
@@ -611,18 +614,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &280632592
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 280632589}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 102025716ee46904782aaa069d42587c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &280632593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -641,18 +632,6 @@ MonoBehaviour:
   - {fileID: 6486561429032386565, guid: 7a82db97def282349814739cafcf3466, type: 3}
   - {fileID: 6486561429032386565, guid: e2d8e78cf42896f49becc8cf050e92de, type: 3}
   randomColorScript: {fileID: 0}
---- !u!114 &280632594
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 280632589}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 059b93ae311f55540ac441b81d0aafc3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &280632595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -665,12 +644,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bf960ca007e21640aed434e0506717b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  landPrefabs:
-  - {fileID: 6486561429032386565, guid: 00e68ca91123a2640a6965a23237fe75, type: 3}
-  - {fileID: 6486561429032386565, guid: 43dac3d63435e5a49bc355d13f8dda65, type: 3}
-  - {fileID: 6486561429032386565, guid: 1fe1eefe3af7254489b3bba9670c60b2, type: 3}
-  landSizeX: 100
-  landSizeZ: 100
+  GridSize: {x: 10, y: 10, z: 3}
 --- !u!114 &280632596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1398,7 +1372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8329d111a3c402047861a9c1545f71de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GridSize: {x: 10, y: 10}
+  GridSize: {x: 10, y: 10, z: 3}
   displayParameter: {fileID: 500379695}
   resursManager: {fileID: 500379696}
   resoursCounter: {fileID: 500379693}

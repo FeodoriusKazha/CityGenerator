@@ -4,53 +4,59 @@ using UnityEngine;
 
 public class LandskapeGrid : MonoBehaviour
 {
-  public int[,] landskapeGrid;
-  public GameObject[] landPrefabs;
-  public int landSizeX, landSizeZ;
+  public Vector3Int GridSize = new Vector3Int(10, 10, 3);
+  private BuildingSettings[,,] _grid;
+  //public MapSettings mapSettings;
 
-  private float _offsetX, _offsetZ;
 
-  //void Start()
-  //{
-  //  CityGeneratorNew cityGeneratorNew = GetComponent<CityGeneratorNew>();
-  //  landskapeGrid = new int[landSizeX, landSizeZ];
-  //  _offsetX = Random.Range(0f, 100f);
-  //  _offsetZ = Random.Range(0f, 100f);
+  private float _offsetX, _offsetZ, _offsetY;
 
-  //  for (int i = 0; i < landSizeX; i++)
-  //  {
-  //    for (int j = 0; j < landSizeZ; j++)
-  //    {
-  //      float xCoord = ((float)i / landSizeX) + _offsetX;
-  //      float zCoord = ((float)j / landSizeZ) + _offsetZ;
-  //      float perlinValue = Mathf.PerlinNoise(xCoord, zCoord);
+  private void Awake()
+  {
+    _grid = new BuildingSettings[GridSize.x, GridSize.y, GridSize.z];
+  }
 
-  //      landskapeGrid[i, j] = Mathf.RoundToInt(perlinValue * 4);
-  //      if (i < cityGeneratorNew.gridAll.GetLength(0) && j < cityGeneratorNew.gridAll.GetLength(1))
-  //      {
-  //        switch (landskapeGrid[i, j]) // Можно ввести индексы для моря и гор, чтобы была возможность на них строить
-  //        {
-  //          case 0:
-  //            cityGeneratorNew.gridAll[i, j] = null;
-  //            Instantiate(landPrefabs[0], new Vector3(i, 0, j), Quaternion.identity);
-  //            break;
-  //          case 1:
-  //            cityGeneratorNew.gridAll[i, j] = null;
-  //            Instantiate(landPrefabs[0], new Vector3(i, 0, j), Quaternion.identity);
-  //            break;
-  //          case 2:
-  //            cityGeneratorNew.gridAll[i, j] = Instantiate(landPrefabs[1], new Vector3(i, 0, j), Quaternion.identity) as GameObject;
-  //            break;
-  //          case 3:
-  //            cityGeneratorNew.gridAll[i, j] = Instantiate(landPrefabs[2], new Vector3(i, 0, j), Quaternion.identity) as GameObject;
+  void Start()
+  {
+    //CityGeneratorNew cityGeneratorNew = GetComponent<CityGeneratorNew>();
 
-  //            break;
-  //        }
-  //      }
-  //    }
+    _offsetX = Random.Range(0f, 100f);
+    _offsetZ = Random.Range(0f, 100f);
 
-  //  }
-  //}
+    for (int i = 0; i < GridSize.x; i++)
+    {
+      for (int j = 0; j < GridSize.y; j++)
+      {
+        float xCoord = ((float)i / GridSize.x) + _offsetX;
+        float zCoord = ((float)j / GridSize.y) + _offsetZ;
+        float perlinValue = Mathf.PerlinNoise(xCoord, zCoord);
+
+        _offsetY = Mathf.RoundToInt(perlinValue * 4);
+        //if (i < cityGeneratorNew.gridAll.GetLength(0) && j < cityGeneratorNew.gridAll.GetLength(1))
+        //{
+        //  switch (landskapeGrid[i, j]) // Можно ввести индексы для моря и гор, чтобы была возможность на них строить
+        //  {
+        //    case 0:
+        //      cityGeneratorNew.gridAll[i, j] = null;
+        //      Instantiate(landPrefabs[0], new Vector3(i, 0, j), Quaternion.identity);
+        //      break;
+        //    case 1:
+        //      cityGeneratorNew.gridAll[i, j] = null;
+        //      Instantiate(landPrefabs[0], new Vector3(i, 0, j), Quaternion.identity);
+        //      break;
+        //    case 2:
+        //      cityGeneratorNew.gridAll[i, j] = Instantiate(landPrefabs[1], new Vector3(i, 0, j), Quaternion.identity) as GameObject;
+        //      break;
+        //    case 3:
+        //      cityGeneratorNew.gridAll[i, j] = Instantiate(landPrefabs[2], new Vector3(i, 0, j), Quaternion.identity) as GameObject;
+
+        //      break;
+        //  }
+      }
+    }
+  }
+}
+
 
   //public void CheckLand(GameObject[,] cityGrid)
   //{
@@ -77,4 +83,4 @@ public class LandskapeGrid : MonoBehaviour
   //    }
   //  }
   //}
-}
+  //}

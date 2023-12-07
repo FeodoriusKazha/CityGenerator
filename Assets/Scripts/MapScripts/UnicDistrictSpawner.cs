@@ -43,28 +43,40 @@ public class UnicDistrictSpawner : MonoBehaviour
     switch (side)
     {
       case 0:
-        for(int i = 1;  i <= _landSizeX; i++)
-        {
-          gridAll[i, 0].SetActive(true);
-        }
+        if (gridAll[0, 0] != null) gridAll[0, 0].SetActive(true);
         break;
       case 1:
-        for (int i = 0; i <= _landSizeX; i++)
+        for (int i = 1; i < _landSizeX-2; i++)
         {
-          gridAll[0, i].SetActive(true);
+          if (gridAll[0, i] != null) gridAll[0, i].SetActive(true);
+        }
+        break;
+      case 5:
+        gridAll[8, 0].SetActive(true);
+        break;
+      case 3:
+        for (int i = 1; i < _landSizeX - 2; i++)
+        {
+          if (gridAll[0, i] != null) gridAll[i, 0].SetActive(true);
+        }
+        break;
+      case 6:
+        for (int i = 1; i < _landSizeX-2; i++)
+        {
+          if (gridAll[8, i] != null) gridAll[8, i].SetActive(true);
         }
         break;
       case 2:
-        for (int i = 0; i <= _landSizeX; i++)
+        if (gridAll[0, 8] != null) gridAll[0, 8].SetActive(true);
+        break;
+      case 4:
+        for (int i = 1; i < _landSizeX-2; i++)
         {
-          gridAll[i, 10].SetActive(true);
+          if (gridAll[i, 8] != null) gridAll[i, 8].SetActive(true);
         }
         break;
-      case 3:
-        for (int i = 0; i <= _landSizeX; i++)
-        {
-          gridAll[10, i].SetActive(true);
-        }
+      case 7:
+        if (gridAll[8, 8] != null) gridAll[8, 8].SetActive(true);
         break;
     }
   }

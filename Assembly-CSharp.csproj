@@ -59,7 +59,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\UI\ResursManager.cs" />
-    <Compile Include="Assets\Scripts\MapScripts\GridGenerator_River_Tipe.cs" />
     <Compile Include="Assets\Scripts\MapScripts\Buildings\RandomPrefabSpawner.cs" />
     <Compile Include="Assets\Scripts\MapScripts\UnicDistrictSpawner.cs" />
     <Compile Include="Assets\Scripts\MapScripts\PerlinGenerator.cs" />
@@ -71,8 +70,8 @@
     <Compile Include="Assets\Scripts\MapScripts\Buildings\Mall.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\DragAndDrop.cs" />
     <Compile Include="Assets\Scripts\MapScripts\LandskapeGrid.cs" />
+    <Compile Include="Assets\Scripts\MapScripts\Buildings\MapSettings.cs" />
     <Compile Include="Assets\Scripts\UI\DisplayParameter.cs" />
-    <Compile Include="Assets\Scripts\MapScripts\MapLevels.cs" />
     <Compile Include="Assets\Scripts\MapScripts\Buildings\RandomColoring.cs" />
     <Compile Include="Assets\Scripts\MapScripts\Vizualizer.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\TakeBuildTipe.cs" />
