@@ -4,19 +4,20 @@ using UnityEngine;
 
 public class BuildingByDrag : MonoBehaviour
 {
-  public Vector3Int GridSize = new Vector3Int(10, 10, 3);
+  //public Vector3Int GridSize = new Vector3Int(10, 10, 3);
   private BuildingSettings[,,] grid;
   private BuildingSettings flyingBuilding;
   public DisplayParameter displayParameter;
   public ResursManager resursManager;
   public ResoursCounter resoursCounter;
-  public UnicDistrictSpawner unicDistrictSpawner;
+  public MapCreator mapCreator;
+  //public UnicDistrictSpawner unicDistrictSpawner;
   private Camera mainCamera;
   private float _cellSize = 10f;
 
   private void Awake()
   {
-    grid = new BuildingSettings[GridSize.x, GridSize.y, GridSize.z];
+    //grid = new BuildingSettings[GridSize.x, GridSize.y, GridSize.z];
     mainCamera = Camera.main;
   }
 
@@ -48,13 +49,15 @@ public class BuildingByDrag : MonoBehaviour
 
         int x = Mathf.RoundToInt(worldPosition.x / _cellSize);
         int y = Mathf.RoundToInt(worldPosition.z / _cellSize);
+        int z = Mathf.RoundToInt(worldPosition.z / _cellSize);
 
         bool available = true;
 
-        if (x < 0 || x > GridSize.x - flyingBuilding.Size.x) available = false;
-        if (y < 0 || y > GridSize.y - flyingBuilding.Size.y) available = false;
+        if (x < 0 || x > mapCreator.GridSize.x - flyingBuilding.Size.x) available = false;
+        if (y < 0 || y > mapCreator.GridSize.y - flyingBuilding.Size.y) available = false;
+        if (z < 0 || z > mapCreator.GridSize.y - flyingBuilding.Size.z) available = false;
 
-        if (available && IsPlaceTaken(x, y)) available = false;
+        if (available && IsPlaceTaken(x, y , z)) available = false;
 
         flyingBuilding.transform.position = new Vector3(x * _cellSize, 0, y * _cellSize);
         flyingBuilding.SetTransparent(available);
@@ -63,32 +66,38 @@ public class BuildingByDrag : MonoBehaviour
         {
           CheckNeighbors(x, y, flyingBuilding);
           if(flyingBuilding.CheckDistrictTipe() != "Food") resoursCounter.AddResoursBonus(-flyingBuilding.CheckDistrictUpkeep(), "Food");
-          PlaceFlyingBuilding(x,y);  
+          PlaceFlyingBuilding(x,y,z);  
         }
       }
     }
   }
 
-  private bool IsPlaceTaken(int placeX, int placeY)
+  private bool IsPlaceTaken(int placeX, int placeY, int placeZ)
   {
     for (int x = 0; x < flyingBuilding.Size.x; x++)
     {
       for (int y = 0; y < flyingBuilding.Size.y; y++)
       {
-        if(grid[placeX + x, placeY + y, 0] != null) return true;
+        for(int z = 0; z < flyingBuilding.Size.z; z++)
+        {
+        if(mapCreator.gridAll[placeX + x, placeY + y, placeZ + z] != null) return true;
+        }
       }
     }
 
     return false;
   }
 
-  private void PlaceFlyingBuilding(int placeX, int placeY)
+  private void PlaceFlyingBuilding(int placeX, int placeY, int placeZ)
   {
     for (int x = 0; x < flyingBuilding.Size.x; x++)
     {
       for (int y = 0; y < flyingBuilding.Size.y; y++)
       {
-        grid[placeX + x, placeY + y, 0] = flyingBuilding;
+        for (int z = 0; z < flyingBuilding.Size.z; z++)
+        {
+          grid[placeX + x, placeY + y, placeZ + z] = flyingBuilding;
+        }
       }
     }
 
@@ -103,9 +112,9 @@ public class BuildingByDrag : MonoBehaviour
       {
         for (int z = -1; z <= building.Size.z; z++)
         {
-          if (placeX + x >= 0 && placeX + x < GridSize.x && placeY + y >= 0 && placeY + y < GridSize.y)
+          if (placeX + x >= 0 && placeX + x < mapCreator.GridSize.x && placeY + y >= 0 && placeY + y < mapCreator.GridSize.y)
           {
-            BuildingSettings neighbor = grid[placeX + x, placeY + y, 0];
+            BuildingSettings neighbor = grid[placeX + x, placeY + y, z];
             if (neighbor != null && neighbor.CheckDistrictTipe() == building.CheckDistrictTipe())
             {
               neighbor.ConnectionCheck(-x, -y);
@@ -121,14 +130,14 @@ public class BuildingByDrag : MonoBehaviour
   {
     Gizmos.color = Color.white;
 
-    for (int x = 0; x <= GridSize.x; x++)
+    for (int x = 0; x <= mapCreator.GridSize.x; x++)
     {
-      Gizmos.DrawLine(new Vector3(x * _cellSize, 0, 0), new Vector3(x * _cellSize, 0, GridSize.y * _cellSize));
+      Gizmos.DrawLine(new Vector3(x * _cellSize, 0, 0), new Vector3(x * _cellSize, 0, mapCreator.GridSize.y * _cellSize));
     }
 
-    for (int y = 0; y <= GridSize.y; y++)
+    for (int y = 0; y <= mapCreator.GridSize.y; y++)
     {
-      Gizmos.DrawLine(new Vector3(0, 0, y * _cellSize), new Vector3(GridSize.x * _cellSize, 0, y * _cellSize));
+      Gizmos.DrawLine(new Vector3(0, 0, y * _cellSize), new Vector3(mapCreator.GridSize.x * _cellSize, 0, y * _cellSize));
     }
   }
 }

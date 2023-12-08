@@ -59,8 +59,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\UI\ResursManager.cs" />
+    <Compile Include="Assets\Scripts\MapScripts\DayCycleManager - Копировать.cs" />
     <Compile Include="Assets\Scripts\MapScripts\Buildings\RandomPrefabSpawner.cs" />
     <Compile Include="Assets\Scripts\MapScripts\UnicDistrictSpawner.cs" />
+    <Compile Include="Assets\Scripts\MapScripts\MapCreator.cs" />
     <Compile Include="Assets\Scripts\MapScripts\PerlinGenerator.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\ClickOnObject.cs" />
@@ -78,7 +80,6 @@
     <Compile Include="Assets\Scripts\MapScripts\Buildings\BuildingTipe.cs" />
     <Compile Include="Assets\Scripts\MapScripts\Buildings\DistrictTipe.cs" />
     <Compile Include="Assets\Scripts\MapScripts\Buildings\BuildingSettings.cs" />
-    <Compile Include="Assets\Scripts\MapScripts\DayCycleManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

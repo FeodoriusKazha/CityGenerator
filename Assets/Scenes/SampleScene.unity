@@ -453,6 +453,104 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 176286120}
   m_CullTransparentMesh: 1
+--- !u!1 &228477055
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 228477059}
+  - component: {fileID: 228477058}
+  - component: {fileID: 228477057}
+  - component: {fileID: 228477060}
+  m_Layer: 0
+  m_Name: Cube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!23 &228477057
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228477055}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &228477058
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228477055}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &228477059
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228477055}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &228477060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228477055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f34efef1444ca0a44b0ea1ab227542cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MainRenderer: {fileID: 0}
+  Size: {x: 1, y: 1, z: 1}
 --- !u!1 &265850594
 GameObject:
   m_ObjectHideFlags: 0
@@ -590,15 +688,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b05be574cfc708448e6497ce3711d13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridPrefabs:
-  - {fileID: 919132149155446097, guid: 8a424264d6b4f774bb0472464299c4d7, type: 3}
-  gridSizeX: 5
-  gridSizeZ: 5
-  _gridSizeAddX: 0
-  _gridSizeAddZ: 0
-  randomValue: 0
-  emptyCells: []
-  availablePositions: []
 --- !u!4 &280632591
 Transform:
   m_ObjectHideFlags: 0
@@ -1353,6 +1442,7 @@ GameObject:
   - component: {fileID: 500379694}
   - component: {fileID: 500379695}
   - component: {fileID: 500379696}
+  - component: {fileID: 500379697}
   m_Layer: 0
   m_Name: WorldManager
   m_TagString: Untagged
@@ -1372,11 +1462,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8329d111a3c402047861a9c1545f71de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GridSize: {x: 10, y: 10, z: 3}
   displayParameter: {fileID: 500379695}
   resursManager: {fileID: 500379696}
   resoursCounter: {fileID: 500379693}
-  unicDistrictSpawner: {fileID: 0}
+  mapCreator: {fileID: 500379697}
 --- !u!4 &500379692
 Transform:
   m_ObjectHideFlags: 0
@@ -1451,6 +1540,23 @@ MonoBehaviour:
   - {fileID: 688938391}
   - {fileID: 1540186109}
   displayParameter: {fileID: 500379695}
+--- !u!114 &500379697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 500379690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df6911e4a716af64d8dc2154a4a482f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GridSize: {x: 50, y: 50, z: 10}
+  terrainPrefab: {fileID: 228477055}
+  octaves: 5
+  persistence: 0.4
+  lacunarity: 2
 --- !u!1 &561039012
 GameObject:
   m_ObjectHideFlags: 0
@@ -1480,51 +1586,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df6911e4a716af64d8dc2154a4a482f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeOfDay: 0
-  DayDuration: 30
-  Sun: {fileID: 410087040}
-  SunCurse:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0.0020750444
-      value: -0.0038912296
-      inSlope: 6.0323505
-      outSlope: 6.0323505
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.1679667
-      value: 0.99682534
-      inSlope: 0.0004257446
-      outSlope: 0.0004257446
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.5032732
-      value: 0.9973054
-      inSlope: -0.05665678
-      outSlope: -0.05665678
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.08285872
-      outWeight: 0.05220283
-    - serializedVersion: 3
-      time: 0.99711055
-      value: -0.0000021504238
-      inSlope: 0.24468611
-      outSlope: 0.24468611
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 1
-      outWeight: 0
-    m_PreInfinity: 1
-    m_PostInfinity: 1
-    m_RotationOrder: 4
+  GridSize: {x: 10, y: 10, z: 3}
+  terrainPrefab: {fileID: 0}
+  octaves: 4
+  persistence: 0.5
+  lacunarity: 2
 --- !u!4 &561039014
 Transform:
   m_ObjectHideFlags: 0
